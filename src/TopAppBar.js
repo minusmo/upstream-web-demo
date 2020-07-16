@@ -11,7 +11,7 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 0
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -26,13 +26,17 @@ export default function TopAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Hyundai
           </Typography>
-          <SearchRoundedIcon />
-          <AccountCircleRoundedIcon />
+          <IconButton color="inherit" edge="end">
+            <SearchRoundedIcon />
+          </IconButton>
+          <IconButton color="inherit" edge="end">
+            <AccountCircleRoundedIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
