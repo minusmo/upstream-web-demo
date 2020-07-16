@@ -11,7 +11,7 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 0
+    flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
