@@ -13,8 +13,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  appbar: {
+    top: theme.spacing(8),
+    width: "calc(36.4%)",
+    left: "calc(31.8%)",
   },
   title: {
     flexGrow: 1,
@@ -26,7 +28,7 @@ export default function TopAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar className={classes.appbar} position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Hyundai

@@ -6,21 +6,25 @@ import TopAppbar from "./TopAppBar";
 import BottomTabs from "./BottomTabs";
 import { makeStyles } from "@material-ui/core/styles";
 import { sizing } from "@material-ui/system";
+import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
 
 const useStyle = makeStyles((theme) => ({
-  root: {},
+  root: {
+    width: "calc(36.4%)",
+  },
 }));
 
 export default function HomeTab() {
   const classes = useStyle();
 
   return (
-    <React.Fragment>
+    // <React.Fragment>
+    <Container className={classes.root}>
       <CssBaseLine />
-      <Container className={classes.root} component="main" maxWidth="xs">
-        <TopAppbar />
-        <BottomTabs />
-      </Container>
-    </React.Fragment>
+      <TopAppbar />
+      <BottomTabs />
+    </Container>
+    // </React.Fragment>
   );
 }

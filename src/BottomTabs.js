@@ -7,6 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import HomeIcon from "@material-ui/icons/Home";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,7 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box p={1}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -44,12 +45,21 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+  },
+  views: {
+    marginTop: theme.spacing(20),
   },
 
-  appbar: {
-    bottom: 0,
+  bottomBar: {
+    width: "calc(36.4%)",
+    left: "calc(31.8%)",
+    bottom: theme.spacing(40),
     top: "auto",
+  },
+
+  tabs: {
+    display: "flex",
+    justifyContent: "space-evenly",
   },
 }));
 
@@ -69,12 +79,20 @@ export default function FullWidthTabs() {
   return (
     <div className={classes.root}>
       <SwipeableViews
+        className={classes.views}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
           Item One
+          <br />
+          dfsfsdf
+          <br />
+          sdfsdfsdf
+          <br />
+          sdfsdfsfsdf
+          <br />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Item Two
@@ -83,8 +101,9 @@ export default function FullWidthTabs() {
           Item Three
         </TabPanel>
       </SwipeableViews>
-      <AppBar className={classes.appbar} position="fixed" color="default">
+      <AppBar className={classes.bottomBar} position="fixed" color="default">
         <Tabs
+          className={classes.tabs}
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
@@ -92,7 +111,7 @@ export default function FullWidthTabs() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Home" {...a11yProps(0)} />
+          <Tab icon={<HomeIcon />} {...a11yProps(0)} />
           <Tab label="게시판" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
