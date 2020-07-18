@@ -6,8 +6,6 @@ import TopAppbar from "./TopAppBar";
 import BottomTabs from "./BottomTabs";
 import { makeStyles } from "@material-ui/core/styles";
 import { sizing } from "@material-ui/system";
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 
 const useStyle = makeStyles((theme) => ({
   root: {

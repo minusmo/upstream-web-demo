@@ -8,6 +8,9 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import HomeIcon from "@material-ui/icons/Home";
+import ViewListIcon from "@material-ui/icons/ViewList";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import Grid from "@material-ui/core/Grid"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -57,9 +60,9 @@ const useStyles = makeStyles((theme) => ({
     top: "auto",
   },
 
-  tabs: {
-    display: "flex",
-    justifyContent: "space-evenly",
+  tab: {
+    width: theme.spacing(4),
+    minWidth: theme.spacing(4),
   },
 }));
 
@@ -93,6 +96,17 @@ export default function FullWidthTabs() {
           <br />
           sdfsdfsfsdf
           <br />
+          <Grid container alignContent="space-between" alignItems="center" direction="column" justify="space-evenly" xs={3}>
+            <Grid item>
+
+            </Grid>
+            <Grid item>
+
+            </Grid>
+            <Grid item>
+
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Item Two
@@ -111,9 +125,21 @@ export default function FullWidthTabs() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab icon={<HomeIcon />} {...a11yProps(0)} />
-          <Tab label="게시판" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab
+            classes={{ root: classes.tab }}
+            icon={<HomeIcon />}
+            {...a11yProps(0)}
+          />
+          <Tab
+            classes={{ root: classes.tab }}
+            icon={<ViewListIcon />}
+            {...a11yProps(1)}
+          />
+          <Tab
+            classes={{ root: classes.tab }}
+            icon={<NotificationsIcon />}
+            {...a11yProps(2)}
+          />
         </Tabs>
       </AppBar>
     </div>
