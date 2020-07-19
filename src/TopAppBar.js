@@ -13,8 +13,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  appbar: {
+    top: theme.spacing(8),
+    width: "calc(36.4%)",
+    left: "calc(31.8%)",
   },
   title: {
     flexGrow: 1,
@@ -26,13 +28,17 @@ export default function TopAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.appbar} position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Hyundai
           </Typography>
-          <SearchRoundedIcon />
-          <AccountCircleRoundedIcon />
+          <IconButton color="inherit" edge="end">
+            <SearchRoundedIcon />
+          </IconButton>
+          <IconButton color="inherit" edge="end">
+            <AccountCircleRoundedIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
