@@ -10,7 +10,9 @@ import Box from "@material-ui/core/Box";
 import HomeIcon from "@material-ui/icons/Home";
 import ViewListIcon from "@material-ui/icons/ViewList";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import Grid from "@material-ui/core/Grid"
+import Grid from "@material-ui/core/Grid";
+import List from "./List";
+import Zoom from "@material-ui/core/Zoom"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,6 +53,12 @@ const useStyles = makeStyles((theme) => ({
   },
   views: {
     marginTop: theme.spacing(20),
+    height: theme.spacing(45),
+  },
+
+  tabpanel: {
+    overflow: "hidden",
+    height: "calc(30%)",
   },
 
   bottomBar: {
@@ -81,6 +89,7 @@ export default function FullWidthTabs() {
 
   return (
     <div className={classes.root}>
+    <Zoom in={true} style={{ transitionDuration: "500ms" }}>
       <SwipeableViews
         className={classes.views}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -88,23 +97,22 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
-          <br />
-          dfsfsdf
-          <br />
-          sdfsdfsdf
-          <br />
-          sdfsdfsfsdf
-          <br />
-          <Grid container alignContent="space-between" alignItems="center" direction="column" justify="space-evenly" xs={3}>
+          <Grid
+            container
+            alignContent="space-between"
+            alignItems="center"
+            direction="column"
+            justify="space-evenly"
+            xs="auto"
+          >
             <Grid item>
-
+              <List />
             </Grid>
             <Grid item>
-
+              <List />
             </Grid>
             <Grid item>
-
+              <List />
             </Grid>
           </Grid>
         </TabPanel>
@@ -115,6 +123,7 @@ export default function FullWidthTabs() {
           Item Three
         </TabPanel>
       </SwipeableViews>
+      </Zoom>
       <AppBar className={classes.bottomBar} position="fixed" color="default">
         <Tabs
           className={classes.tabs}

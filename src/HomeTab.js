@@ -6,6 +6,7 @@ import TopAppbar from "./TopAppBar";
 import BottomTabs from "./BottomTabs";
 import { makeStyles } from "@material-ui/core/styles";
 import { sizing } from "@material-ui/system";
+import Zoom from "@material-ui/core/Zoom";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ export default function HomeTab() {
 
   return (
     // <React.Fragment>
+
     <Container className={classes.root}>
       <CssBaseLine />
       <TopAppbar />

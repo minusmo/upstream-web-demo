@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -51,8 +51,29 @@ const useStyles = makeStyles((theme) => ({
   box: {},
 }));
 
+const userData = {
+  "0": {
+    id: "admin",
+    pwd: "admin",
+  },
+};
+
 export default function SignIn() {
   const classes = useStyles();
+  const [id, setId] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [valid, setValid] = useState(false);
+
+  const handleSubmit = (id, pwd) => {
+    for (let value of Object.values(userData)) {
+      console.log(value);
+      if (value["id"] === id && value["pwd"] === pwd) {
+        return setValid(true);
+      }
+    }
+
+    return;
+  };
 
   return (
     <Zoom in={true} style={{ transitionDuration: "300ms" }}>
@@ -65,7 +86,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -76,6 +97,10 @@ export default function SignIn() {
               name="id"
               autoComplete="id"
               autoFocus
+              onChange={(event) => {
+                const idValue = event.target.value;
+                setId(idValue);
+              }}
             />
             <TextField
               variant="outlined"
@@ -87,6 +112,10 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(event) => {
+                const pwdValue = event.target.value;
+                setPwd(pwdValue);
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -98,6 +127,9 @@ export default function SignIn() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={(id, pwd) => handleSubmit(id, pwd)}
+              component={RouterLink}
+              to="/HomeTab"
             >
               Sign In
             </Button>
